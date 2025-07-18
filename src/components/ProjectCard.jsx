@@ -8,6 +8,26 @@ const ProjectCard = ({ project, index }) => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const controls = useAnimation();
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [videoIsVisible, setVideoIsVisible] = useState(false);
+  
+  // Usar um InView separado para o vídeo com threshold maior
+  const videoInView = useInView(ref, { 
+    amount: 0.9, // O card precisa estar 50% visível
+    margin: "0px" 
+  });
+
+  // Detectar se é mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -15,16 +35,34 @@ const ProjectCard = ({ project, index }) => {
     }
   }, [isInView, controls]);
 
-  // Auto-play video quando hover ou em view
+  // Controlar quando o vídeo deve aparecer
+  useEffect(() => {
+    if (isMobile && videoInView) {
+      // No mobile, mostra o vídeo quando o card estiver bem visível
+      setVideoIsVisible(true);
+    } else if (isMobile && !videoInView) {
+      // No mobile, esconde o vídeo quando sair de view
+      setVideoIsVisible(false);
+    } else if (!isMobile && isHovered) {
+      // No desktop, mostra o vídeo apenas no hover
+      setVideoIsVisible(true);
+    } else if (!isMobile && !isHovered) {
+      // No desktop, esconde o vídeo quando não há hover
+      setVideoIsVisible(false);
+    }
+  }, [isMobile, videoInView, isHovered]);
+
+  // Auto-play video quando visível
   useEffect(() => {
     if (videoRef.current) {
-      if (isHovered || isInView) {
+      if (videoIsVisible) {
         videoRef.current.play().catch(err => console.log("Erro ao reproduzir:", err));
       } else {
         videoRef.current.pause();
+        videoRef.current.currentTime = 0; // Resetar o vídeo
       }
     }
-  }, [isHovered, isInView]);
+  }, [videoIsVisible]);
 
   return (
     <motion.a
@@ -46,11 +84,11 @@ const ProjectCard = ({ project, index }) => {
       {/* Container responsivo - aspect ratio no mobile, altura fixa no desktop */}
       <div className="relative overflow-hidden h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] flex items-end">
         
-        {/* Imagem de capa - visível quando não hover */}
+        {/* Imagem de capa - visível quando vídeo não está visível */}
         {project.thumbnail && (
           <div 
-            className={`absolute inset-0 z-10 transition-opacity duration-500 ${
-              isHovered ? 'opacity-0' : 'opacity-100'
+            className={`absolute inset-0 z-10 transition-opacity duration-700 ${
+              videoIsVisible ? 'opacity-0' : 'opacity-100'
             }`}
           >
             <img 
@@ -80,7 +118,7 @@ const ProjectCard = ({ project, index }) => {
         {/* Content - mantendo o estilo original */}
         <div className="relative z-20 flex flex-col md:flex-row md:items-center md:justify-between gap-4 w-full p-6 sm:p-8 md:p-12">
           <motion.h3
-            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight text-white"
             transition={{ duration: 0.3 }}
           >
             {project.name}

@@ -54,15 +54,26 @@ const Projects = () => {
   return (
     <section id="projetos" className="py-20 md:py-32">
       <div className="container mx-auto px-8 md:px-12">
-        <motion.h2
-          className="text-4xl md:text-6xl font-bold mb-16 uppercase tracking-tight"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          Projetos
-        </motion.h2>
+        <div className="flex items-end justify-between mb-16 border-b border-gray-200 pb-8">
+          <motion.h2
+            className="text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Projetos:
+          </motion.h2>
+          <motion.div
+            className="text-lg md:text-xl text-gray-600 hidden md:block"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            ({projects.length})
+          </motion.div>
+        </div>
       </div>
 
       <div className="flex flex-col gap-8">
