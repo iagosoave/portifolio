@@ -62,11 +62,10 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight max-w-6xl mx-auto">
-            <span className="block sm:inline">{displayedText.split(' ').slice(0, 2).join(' ')}</span>
-            <span className="block sm:inline sm:ml-2">{displayedText.split(' ').slice(2).join(' ')}</span>
+         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight max-w-6xl mx-auto">
+            {displayedText}
             <motion.span
-              className="inline-block ml-1"
+              className="inline"
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
             >
