@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import logo from './logo.png';
-import back from './back.jpg';
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
@@ -30,22 +29,9 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex flex-col justify-between relative bg-black text-white">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${back})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Overlay opcional para melhorar legibilidade */}
-      </div>
-
       {/* Header */}
       <motion.header
-        className="flex justify-between items-center p-8 md:p-12 relative z-10"
+        className="flex justify-between items-center p-8 md:p-12"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -69,7 +55,7 @@ const Hero = () => {
       </motion.header>
 
       {/* Main Content - CENTRALIZADO */}
-      <div className="flex-1 flex flex-col items-center justify-center text-center px-8 md:px-12 relative z-10">
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-8 md:px-12">
         <motion.h1
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight max-w-6xl"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -89,7 +75,7 @@ const Hero = () => {
 
       {/* CTA - BOTÃO VOLTOU */}
       <motion.div
-        className="flex justify-center pb-20 relative z-10"
+        className="flex justify-center pb-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
