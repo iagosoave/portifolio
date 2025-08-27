@@ -76,7 +76,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} />
         ))}
