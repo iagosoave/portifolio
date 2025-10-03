@@ -10,19 +10,7 @@ const Footer = () => {
           © 2025 Webbrazee
         </p>
         
-        <div className="flex gap-8">
-          <motion.a
-            href="https://instagram.com/webbrazee"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-white/60 hover:text-white transition-colors uppercase tracking-wider"
-            whileHover={{ y: -2 }}
-          >
-            Instagram
-          </motion.a>
-          
-          
-        </div>
+       
       </div>
     </footer>
   );

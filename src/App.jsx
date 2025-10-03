@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 const App = () => {
   useEffect(() => {
@@ -22,7 +22,7 @@ const App = () => {
       <Hero />
       <Projects />
       <Contact />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
