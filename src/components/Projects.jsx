@@ -14,9 +14,18 @@ import thumb1 from './black.png';
 import thumb2 from './soave.png';
 import thumb3 from './cris.png';
 import thumb4 from './occa.png';
+import thumb5 from './pedro.png';
 
 const Projects = () => {
   const projects = [
+
+    {
+      name: "WORKSHOP LOBOS DO AIRBNB",
+      category: "PÁGINA DE VENDAS",
+      year: "2025",
+      url: "https://lp-pedro.netlify.app/",
+      thumbnail: thumb5
+    },
     {
       name: "BLACKSHADE",
       category: "AGÊNCIA PUBLICITÁRIA",
