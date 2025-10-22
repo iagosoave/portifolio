@@ -1,15 +1,12 @@
-// components/Projects.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
-// Importar vídeos
 import video1 from './black.mp4';
 import video2 from './soave.mp4';
 import video3 from './cris.mp4';
 import video4 from './occa.mp4';
 
-// Importar thumbnails
 import thumb1 from './black.png';
 import thumb2 from './soave.png';
 import thumb3 from './cris.png';

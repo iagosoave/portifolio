@@ -1,4 +1,3 @@
-// components/Hero.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import iago from './iago.jpg';
@@ -29,12 +28,9 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex flex-col relative bg-black text-white overflow-hidden">
-      {/* Advanced Minimalist Background */}
       <div className="absolute inset-0">
-        {/* Deep gradient base */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(17,24,39,0.8),rgba(0,0,0,1))]" />
         
-        {/* Subtle animated gradient orbs */}
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-1/4 left-1/4 w-[600px] h-[600px]"
@@ -82,7 +78,6 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Floating dust particles - very subtle */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <motion.div
@@ -108,7 +103,6 @@ const Hero = () => {
           ))}
         </div>
 
-        {/* Subtle light leak effect */}
         <motion.div
           className="absolute -top-1/2 -right-1/2 w-full h-full"
           animate={{
@@ -123,7 +117,6 @@ const Hero = () => {
           <div className="w-full h-full bg-gradient-to-br from-transparent via-transparent to-white/[0.02] blur-2xl" />
         </motion.div>
 
-        {/* Micro grid pattern - barely visible */}
         <div 
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -132,7 +125,6 @@ const Hero = () => {
           }}
         />
 
-        {/* Noise texture overlay */}
         <div 
           className="absolute inset-0 opacity-[0.015]"
           style={{
@@ -140,16 +132,13 @@ const Hero = () => {
           }}
         />
 
-        {/* Very subtle vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.2)_100%)]" />
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 relative z-10">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
             
-            {/* Left Content - Text */}
             <motion.div
               className="text-center lg:text-left order-2 lg:order-1"
               initial={{ opacity: 0, x: -50 }}
@@ -166,7 +155,7 @@ const Hero = () => {
               </motion.p>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-2 sm:mb-4">
-                Iago Soave
+                Iago José Soave Pereira
               </h1>
               
               <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-4 sm:mb-6 h-8 sm:h-10 md:h-12">
@@ -191,7 +180,6 @@ const Hero = () => {
                 Transformo ideias em interfaces elegantes e funcionais.
               </motion.p>
 
-              {/* Skills Tags */}
               <motion.div
                 className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8 justify-center lg:justify-start px-4 sm:px-0"
                 initial={{ opacity: 0, y: 20 }}
@@ -208,7 +196,6 @@ const Hero = () => {
                 ))}
               </motion.div>
 
-              {/* CTA Buttons */}
               <motion.div
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start px-4 sm:px-0"
                 initial={{ opacity: 0, y: 20 }}
@@ -243,7 +230,6 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Content - Photo */}
             <motion.div
               className="order-1 lg:order-2 flex justify-center lg:justify-end mb-4 sm:mb-6 lg:mb-0"
               initial={{ opacity: 0, x: 50 }}
@@ -251,10 +237,8 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="relative">
-                {/* Very subtle glow */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-full blur-2xl" />
                 
-                {/* Circular photo */}
                 <img
                   src={iago}
                   alt="Iago Soave"
