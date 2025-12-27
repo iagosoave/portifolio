@@ -10,7 +10,7 @@ import video4 from './occa.mp4';
 import thumb1 from './black.png';
 import thumb2 from './soave.png';
 import thumb3 from './cris.png';
-import thumb4 from './occa.png';
+import thumb4 from './adam.png';
 import thumb5 from './pedro.png';
 
 const Projects = () => {
@@ -48,10 +48,10 @@ const Projects = () => {
       thumbnail: thumb3
     },
     {
-      name: "OCCA LIFE",
-      category: "E-COMMERCE",
+      name: "Adamas Ads",
+      category: "Agência de Marketing Digital",
       year: "2025",
-      url: "https://occalife.com.br/",
+      url: "https://adamasads.com/",
       video: video4,
       thumbnail: thumb4
     }

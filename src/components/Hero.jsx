@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FaReact, FaNodeJs, FaPython, FaDocker } from 'react-icons/fa';
+import { SiTypescript, SiPostgresql, SiMongodb } from 'react-icons/si';
 import iago from './iago.jpg';
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Web Designer";
+  const fullText = "Full Stack Developer";
   const typingSpeed = 100;
 
   useEffect(() => {
@@ -28,140 +30,74 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex flex-col relative bg-black text-white overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(17,24,39,0.8),rgba(0,0,0,1))]" />
+        {/* Subtle blue gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.05),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.03),transparent_50%)]" />
         
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-[600px] h-[600px]"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="w-full h-full bg-purple-500/[0.07] rounded-full blur-3xl" />
-          </motion.div>
-          
-          <motion.div
-            className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px]"
-            animate={{
-              x: [0, -150, 0],
-              y: [0, 100, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="w-full h-full bg-blue-500/[0.07] rounded-full blur-3xl" />
-          </motion.div>
-          
-          <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px]"
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.05, 0.1, 0.05],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="w-full h-full bg-white/[0.02] rounded-full blur-3xl" />
-          </motion.div>
-        </div>
+        {/* Grid sutil */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+            backgroundSize: '64px 64px',
+          }}
+        />
 
+        {/* Partículas flutuantes reduzidas */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(8)].map((_, i) => (
             <motion.div
-              key={`dust-${i}`}
-              className="absolute w-[1px] h-[1px] bg-white rounded-full"
+              key={`particle-${i}`}
+              className="absolute w-1 h-1 bg-blue-400/15 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.3 + 0.1,
               }}
               animate={{
-                y: [-20, -100],
-                x: [0, Math.random() * 50 - 25],
+                y: [-20, -80],
                 opacity: [0, 0.3, 0],
               }}
               transition={{
-                duration: Math.random() * 15 + 15,
+                duration: Math.random() * 10 + 8,
                 repeat: Infinity,
-                delay: Math.random() * 10,
+                delay: Math.random() * 5,
                 ease: "easeOut",
               }}
             />
           ))}
         </div>
-
-        <motion.div
-          className="absolute -top-1/2 -right-1/2 w-full h-full"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 100,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          <div className="w-full h-full bg-gradient-to-br from-transparent via-transparent to-white/[0.02] blur-2xl" />
-        </motion.div>
-
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `radial-gradient(circle at center, white 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-
-        <div 
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
-
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.2)_100%)]" />
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 relative z-10">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+      {/* Conteúdo */}
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-12 relative z-10">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
             
+            {/* Texto */}
             <motion.div
-              className="text-center lg:text-left order-2 lg:order-1"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
               <motion.p
-                className="text-gray-400 text-xs sm:text-sm md:text-base uppercase tracking-wider mb-1 sm:mb-2"
+                className="text-blue-400 text-xs sm:text-sm uppercase tracking-widest font-medium"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 Olá, eu sou
               </motion.p>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-2 sm:mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight px-2 sm:px-0">
                 Iago José Soave Pereira
               </h1>
               
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-4 sm:mb-6 h-8 sm:h-10 md:h-12">
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-300 h-10 sm:h-12 flex items-center justify-center lg:justify-start">
                 {displayedText}
                 <motion.span
-                  className="inline"
+                  className="inline-block ml-1"
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
                 >
@@ -170,41 +106,52 @@ const Hero = () => {
               </div>
 
               <motion.p
-                className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6 lg:mb-8 max-w-xl mx-auto lg:mx-0 px-4 sm:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                className="text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 px-2 sm:px-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Tenho 20 anos e sou de Sorocaba, SP. Estou no último semestre de Análise e Desenvolvimento de Sistemas. 
-                Especializado em criar experiências digitais únicas com WordPress, Elementor, React.js, JavaScript, HTML e CSS. 
-                Transformo ideias em interfaces elegantes e funcionais.
+                Tenho 20 anos e sou de Sorocaba, SP. Formado em Análise e Desenvolvimento de Sistemas. 
+                Desenvolvedor Full Stack especializado em criar soluções web completas e escaláveis, do frontend ao backend.
               </motion.p>
 
+              {/* Skills */}
               <motion.div
-                className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8 justify-center lg:justify-start px-4 sm:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                className="flex flex-wrap gap-2 justify-center lg:justify-start px-2 sm:px-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
               >
-                {['WordPress', 'Elementor', 'React.js', 'JavaScript', 'HTML/CSS'].map((skill, index) => (
+                {[
+                  { name: 'React.js', icon: FaReact },
+                  { name: 'Node.js', icon: FaNodeJs },
+                  { name: 'TypeScript', icon: SiTypescript },
+                  { name: 'Python', icon: FaPython },
+                  { name: 'PostgreSQL', icon: SiPostgresql },
+                  { name: 'MongoDB', icon: SiMongodb },
+                  { name: 'Docker', icon: FaDocker }
+                ].map(({ name, icon: Icon }) => (
                   <span
-                    key={skill}
-                    className="px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-800 text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider hover:border-gray-600 hover:text-gray-300 transition-all duration-300"
+                    key={name}
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-900/50 border border-gray-800 text-gray-300 text-[10px] sm:text-xs font-medium uppercase tracking-wider hover:bg-gray-800/50 hover:border-blue-500/50 hover:text-blue-300 transition-all duration-300 flex items-center gap-1.5 sm:gap-2"
                   >
-                    {skill}
+                    <Icon className="text-sm sm:text-base" />
+                    <span className="hidden xs:inline sm:inline">{name}</span>
+                    <span className="inline xs:hidden sm:hidden">{name.split('.')[0]}</span>
                   </span>
                 ))}
               </motion.div>
 
+              {/* CTAs */}
               <motion.div
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start px-4 sm:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2 sm:pt-4 px-2 sm:px-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
               >
                 <motion.a
                   href="#projetos"
-                  className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-black text-xs sm:text-sm uppercase tracking-wider hover:bg-gray-200 transition-all duration-300 text-center"
+                  className="px-6 sm:px-8 py-3 sm:py-3.5 bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-wider hover:bg-gray-200 transition-all duration-300 text-center"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#projetos')?.scrollIntoView({ behavior: 'smooth' });
@@ -217,7 +164,7 @@ const Hero = () => {
                 
                 <motion.a
                   href="#contato"
-                  className="px-4 sm:px-6 py-2.5 sm:py-3 border border-white text-white text-xs sm:text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-center"
+                  className="px-6 sm:px-8 py-3 sm:py-3.5 border border-white text-white text-xs sm:text-sm font-semibold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-center"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' });
@@ -230,25 +177,35 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
+            {/* Imagem */}
             <motion.div
-              className="order-1 lg:order-2 flex justify-center lg:justify-end mb-4 sm:mb-6 lg:mb-0"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              className="order-1 lg:order-2 flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <div className="relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-full blur-2xl" />
+                {/* Glow effect simplificado */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/15 to-blue-600/10 rounded-full blur-2xl" />
+                
+                {/* Anel decorativo */}
+                <motion.div 
+                  className="absolute -inset-2 border-2 border-blue-500/20 rounded-full"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                />
                 
                 <img
                   src={iago}
                   alt="Iago Soave"
-                  className="w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-cover rounded-full relative z-10 border border-white/10"
+                  className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-cover rounded-full relative z-10 border-4 border-gray-900 shadow-2xl"
                 />
               </div>
             </motion.div>
           </div>
         </div>
       </div>
+
     </section>
   );
 };
